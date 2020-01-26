@@ -1,0 +1,6 @@
+# MacOS in general...
+**/.DS_Store
+
+# Terraform things
+**/.terraform
+
