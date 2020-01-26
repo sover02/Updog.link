@@ -1,8 +1,8 @@
 locals {
 
-  github_user = "sover02"
-  github_repository = "sover02/updog.link"
-  route53_domain    = "updog.link"
+  github_user            = "sover02"
+  github_repository      = "sover02/updog.link"
+  route53_domain         = "updog.link"
   route53_site_subdomain = "whats"
 
   request_template = {
@@ -29,11 +29,11 @@ EOF
   simple_request_passthrough_template = {
 
     "application/json" = "{\"statusCode\": 200}",
-    "text/html" = "{\"statusCode\": 200}"
+    "text/html"        = "{\"statusCode\": 200}"
   }
 
   simple_response_passthrough_template = {
     "application/json" = "$input.path('$')",
-    "text/html" = "$input.path('$')"
+    "text/html"        = "$input.path('$')"
   }
 }
