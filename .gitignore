@@ -4,3 +4,5 @@
 # Terraform things
 **/.terraform
 
+# Jekyll build directory
+**/_site
