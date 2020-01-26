@@ -3,7 +3,51 @@ layout: default
 title: What's Updog?
 ---
 
+<style>
+  .big-text {
+    font-size: 1.3em;
+  }
+
+  .inline-arrow {
+    height:1.3em;
+    width:1.3em;
+    position: relative;
+    top: 1em;
+  }
+
+  .header-more-room-please {
+    margin-top: 1.5em;
+  }
+
+  .header-even-more-room-please {
+    margin-top: 2.5em;
+  }
+  </style>
+
 <body>
-  <h1>Hello World!</h1>
+
+  <h2>Create a shortlink to anywhere:</h2>
+    <span class="big-text">updog.link/ </span><input class="big-text" type="text" id="shortlink" value="iLoveDavid">
+    <img class="inline-arrow" src="https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/forward-512.png">
+    <input class="big-text" type="text" id="destination" value="https://github.com/sover02">
+    <input class="big-text" type="submit" value="Go!">
+  </form>
+
+  <h3 class="header-even-more-room-please">Why does this exist?</h3>
+  Aside from being a free shortlink service with a <em><a href="https://www.urbandictionary.com/define.php?term=Sick">sick</a></em> name, 
+  this project is a great intro to Infrastructure as Code and multiple cloud technologies. Also you get to have your own shortlink service.
+  
+  
+  <h3 class="header-more-room-please">How do I run my own?</h3>
+
+  <p>Deployment will take you about 10 minutes, start to finish, including reading the instructions.</p>
+
+  <p>Also, It's virtually free to run: <a href="https://aws.amazon.com/api-gateway/pricing/">Amazon's Free Tier</a> supports up to a million API requests per month. That means you can serve one literal million requests on the house.</p>
+
+  <p>Click the Github Link up top if you'd like give it a try.</p>
+
+  <h3 class="header-more-room-please">But no, really, what is "Updog?"</h3>
+  <a href="https://knowyourmeme.com/memes/updog">Nothin' much. What's up with you?</a>
 
 </body>
+
