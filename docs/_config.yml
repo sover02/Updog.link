@@ -30,7 +30,7 @@ github_username: sover02
 
 # Build settings
 # theme: minima
-theme: jekyll-theme-minimal
+theme: jekyll-theme-slate
 plugins:
   # - jekyll-feed
 
