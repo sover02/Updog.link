@@ -15,6 +15,14 @@ resource "aws_route53_record" "updog_link" {
   records = ["127.0.0.1"]
 }
 
+resource "aws_route53_record" "updog_link_site" {
+  zone_id = "${aws_route53_zone.updog_link.zone_id}"
+  name    = "${local.route53_site_subdomain}"
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["${local.github_user}.github.io"]
+}
+
 resource "aws_acm_certificate" "updog_link" {
   domain_name       = "${aws_route53_record.updog_link.fqdn}"
   validation_method = "DNS"
