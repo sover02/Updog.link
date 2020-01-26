@@ -1,6 +1,6 @@
 # What's Updog.link?
 
-Updog.link is an ad-free and open-source URL Shortener service that anyone can deploy and run.o
+Updog.link is an ad-free and open-source URL Shortener service that anyone can deploy and run.
 
 ## Why does this exist?
 Aside from being a free shortlink service with a _[sick](https://www.urbandictionary.com/define.php?term=Sick)_ name, this project is a great intro to Infrastructure as Code and multiple cloud technologies. Also you get to have your own shortlink service.
