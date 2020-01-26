@@ -26,4 +26,14 @@ $input.path('$').Items[0].destination.S
 EOF
   }
 
+  simple_request_passthrough_template = {
+
+    "application/json" = "{\"statusCode\": 200}",
+    "text/html" = "{\"statusCode\": 200}"
+  }
+
+  simple_response_passthrough_template = {
+    "application/json" = "$input.path('$')",
+    "text/html" = "$input.path('$')"
+  }
 }

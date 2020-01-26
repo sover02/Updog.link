@@ -4,7 +4,7 @@ resource "aws_api_gateway_rest_api" "updog_link" {
   name = "${local.route53_domain}-shortlink-service"
 }
 
-resource "aws_api_gateway_stage" "test" {
+resource "aws_api_gateway_stage" "production" {
   stage_name    = "production"
   rest_api_id   = "${aws_api_gateway_rest_api.updog_link.id}"
   deployment_id = "${aws_api_gateway_deployment.updog_link.id}"
