@@ -39,8 +39,8 @@ resource "aws_dynamodb_table_item" "shortlink" {
   item = <<ITEM
 {
   "shortlink": {"S": "${element(local.shortlinks[count.index], 0)}"},
-  "domain": {"S": "${lookup(local.domains, element(local.shortlinks[count.index], 1))}"},
-  "destination": {"S": "${element(local.shortlinks[count.index], 2)}"}
+  "domain": {"S": "${local.route53_domain}"},
+  "destination": {"S": "${element(local.shortlinks[count.index], 1)}"}
 }
 ITEM
 }

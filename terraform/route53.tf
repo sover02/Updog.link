@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "updog_link" {
-  name = "updog.link"
+  name = "${local.route53_domain}"
 
   tags = {
     Name       = "updog_link_r53-dns-zone"
@@ -9,7 +9,7 @@ resource "aws_route53_zone" "updog_link" {
 
 resource "aws_route53_record" "updog_link" {
   zone_id = "${aws_route53_zone.updog_link.zone_id}"
-  name    = "updog.link"
+  name    = "${local.route53_domain}"
   type    = "A"
   ttl     = "300"
   records = ["127.0.0.1"]

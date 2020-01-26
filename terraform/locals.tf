@@ -1,8 +1,7 @@
 locals {
 
-  github_repository = {
-    full_name = "sover02/updog.link"
-  }
+  github_repository = "sover02/updog.link"
+  route53_domain    = "updog.link"
 
   request_template = {
     "application/json" = <<EOF

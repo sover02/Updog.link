@@ -1,11 +1,8 @@
 locals {
 
-  domains = {
-    "updog.link" = "${aws_route53_record.updog_link.fqdn}"
-  }
-
+  # shortlink, domain, url
   shortlinks = [
-    ["github", "updog.link", "https://github.com"],
-    ["gmail", "updog.link", "https://gmail.com"],
+    ["github", "https://github.com"],
+    ["gmail", "https://gmail.com"],
   ]
 }

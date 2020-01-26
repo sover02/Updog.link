@@ -1,7 +1,7 @@
 data "aws_region" "current" {}
 
 resource "aws_api_gateway_rest_api" "updog_link" {
-  name = "updog.link"
+  name = "${local.route53_domain}-shortlink-service"
 }
 
 resource "aws_api_gateway_resource" "updog_link_root" {
