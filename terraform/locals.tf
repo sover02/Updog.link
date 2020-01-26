@@ -1,4 +1,9 @@
 locals {
+
+  github_repository = {
+    full_name = "sover02/updog.link"
+  }
+
   request_template = {
     "application/json" = <<EOF
 {
