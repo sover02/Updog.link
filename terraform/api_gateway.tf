@@ -1,3 +1,5 @@
+data "aws_region" "current" {}
+
 resource "aws_api_gateway_rest_api" "updog_link" {
   name = "updog.link"
 }
@@ -21,7 +23,7 @@ resource "aws_api_gateway_integration" "updog_shortlink_dynamo_query" {
   http_method = "${aws_api_gateway_method.updog_link_root_get.http_method}"
 
   type                    = "AWS"
-  uri                     = "arn:aws:apigateway:us-east-1:dynamodb:action/Query"
+  uri                     = "arn:aws:apigateway:${data.aws_region.current.name}:dynamodb:action/Query"
   integration_http_method = "POST"
   credentials             = "${aws_iam_role.updog_link.arn}"
 
@@ -39,7 +41,7 @@ resource "aws_api_gateway_integration_response" "updog_link_root_200" {
   content_handling  = "CONVERT_TO_TEXT"
 
   response_parameters = { "method.response.header.Location" = "integration.response.body.Items[0].destination.S" }
-  response_templates = "${local.response_template}"
+  response_templates  = "${local.response_template}"
 }
 
 resource "aws_api_gateway_integration_response" "updog_link_root_500" {

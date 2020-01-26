@@ -2,8 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-provider "archive" {}
-
 terraform {
   backend "s3" {
     bucket = "updog.link-tf"
@@ -12,5 +10,4 @@ terraform {
   }
 
   required_version = "0.12.12"
-
 }
