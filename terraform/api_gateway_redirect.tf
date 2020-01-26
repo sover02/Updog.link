@@ -47,8 +47,6 @@ resource "aws_api_gateway_integration_response" "updog_link_redirect_500" {
   selection_pattern = "500"
 }
 
-
-
 resource "aws_api_gateway_method_response" "updog_link_redirect_get_response_302" {
   rest_api_id = "${aws_api_gateway_rest_api.updog_link.id}"
   resource_id = "${aws_api_gateway_resource.updog_link_redirect.id}"
