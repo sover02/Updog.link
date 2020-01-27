@@ -29,7 +29,7 @@ resource "aws_api_gateway_integration_response" "updog_link_redirect_200" {
   rest_api_id = "${aws_api_gateway_rest_api.updog_link.id}"
   resource_id = "${aws_api_gateway_resource.updog_link_redirect.id}"
   http_method = "${aws_api_gateway_method.updog_link_redirect_get.http_method}"
-  status_code = "${aws_api_gateway_method_response.updog_link_redirect_get_response_302.status_code}"
+  status_code = "${aws_api_gateway_method_response.updog_link_redirect_get_response_301.status_code}"
 
   selection_pattern = "200"
   content_handling  = "CONVERT_TO_TEXT"
@@ -47,14 +47,13 @@ resource "aws_api_gateway_integration_response" "updog_link_redirect_500" {
   selection_pattern = "500"
 }
 
-resource "aws_api_gateway_method_response" "updog_link_redirect_get_response_302" {
+resource "aws_api_gateway_method_response" "updog_link_redirect_get_response_301" {
   rest_api_id = "${aws_api_gateway_rest_api.updog_link.id}"
   resource_id = "${aws_api_gateway_resource.updog_link_redirect.id}"
   http_method = "${aws_api_gateway_method.updog_link_redirect_get.http_method}"
-  status_code = "302"
+  status_code = "301"
 
   response_parameters = { "method.response.header.Location" = true }
-  response_models     = { "application/json" = "Empty" }
 }
 
 resource "aws_api_gateway_method_response" "updog_link_redirect_get_response_404" {

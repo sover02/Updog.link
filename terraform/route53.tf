@@ -8,11 +8,15 @@ resource "aws_route53_zone" "updog_link" {
 }
 
 resource "aws_route53_record" "updog_link" {
-  zone_id = "${aws_route53_zone.updog_link.zone_id}"
   name    = "${local.route53_domain}"
   type    = "A"
-  ttl     = "300"
-  records = ["127.0.0.1"]
+  zone_id = "${aws_route53_zone.updog_link.id}"
+
+  alias {
+    evaluate_target_health = true
+    name                   = "${aws_api_gateway_domain_name.updog_link.cloudfront_domain_name}"
+    zone_id                = "${aws_api_gateway_domain_name.updog_link.cloudfront_zone_id}"
+  }
 }
 
 resource "aws_route53_record" "updog_link_site" {
@@ -24,7 +28,7 @@ resource "aws_route53_record" "updog_link_site" {
 }
 
 resource "aws_acm_certificate" "updog_link" {
-  domain_name       = "${aws_route53_record.updog_link.fqdn}"
+  domain_name       = "${local.route53_domain}"
   validation_method = "DNS"
 
   lifecycle {
